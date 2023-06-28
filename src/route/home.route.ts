@@ -4,5 +4,5 @@ import { home } from "../controllers/home.controllers"
 
 export const homeRouter = express.Router()
 
-homeRouter.get("/", home)
+homeRouter.get("/", home )
 
