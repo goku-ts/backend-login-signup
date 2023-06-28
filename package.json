@@ -22,15 +22,20 @@
     "@types/mongoose": "^5.11.97",
     "node-ts": "^5.1.2",
     "ts-node": "^10.9.1"
-  },
-  "name": "node",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  },  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "create a .env file and add the following; DB_URI = \"\" ENVIRONMENT = Local/Database ( to conect to database) PORT  APP_KEY",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goku-ts/backend-login-signup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/goku-ts/backend-login-signup/issues"
+  },
+  "homepage": "https://github.com/goku-ts/backend-login-signup#readme"
 }
