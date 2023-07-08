@@ -7,7 +7,7 @@ import { userRouter} from "./route/user.routes"
 import { homeRouter } from "./route/home.route"
 import { mainRouter } from "./route/main.routes"
 import { Auth } from "./middlewares/auth.middleware"
-import { logger } from "./services/logger.service"
+
 
 const app = express()
 
@@ -16,6 +16,7 @@ app.use(cors())
 app.use("/home", Auth, homeRouter)
 app.use("/user", userRouter)
 app.use("/main", mainRouter)
+app.use("/main", ()=>{})
 
 const PORT = process.env.PORT 
 
