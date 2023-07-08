@@ -1,8 +1,7 @@
-import mongoose from "mongoose";
+import mongoose , {Schema} from "mongoose";
 
-import { UserTypes } from "../types/user.types";
 
-const userSchema = new mongoose.Schema<UserTypes>({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -15,11 +14,14 @@ const userSchema = new mongoose.Schema<UserTypes>({
         type: String,
         required: true,
     },
-   
+    class : [{
+        type: mongoose.Schema.Types.ObjectId , ref : "Class"
+    }]
+
 },
     {
         timestamps: true
     })
 
 
-   export const User = mongoose.model<UserTypes>("User", userSchema)
+   export const User = mongoose.model("User", userSchema)

@@ -15,9 +15,9 @@ export const Auth = (req: AuthRequest, res: Response, next: NextFunction) => {
     if (token) {
         if (KEY) {
             try {
-                const user = JWT.verify(token, KEY)
-                if (user) {
-                    req.user = user
+                const userId = JWT.verify(token, KEY)
+                if (userId) {
+                    req.user = userId
                 }
             } catch (error:any) {
                 return res.json({

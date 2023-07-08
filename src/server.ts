@@ -5,6 +5,7 @@ import { dbConnect } from "./db/connection.db"
 import cors from "cors"
 import { userRouter} from "./route/user.routes"
 import { homeRouter } from "./route/home.route"
+import { mainRouter } from "./route/main.routes"
 import { Auth } from "./middlewares/auth.middleware"
 import { logger } from "./services/logger.service"
 
@@ -14,16 +15,9 @@ app.use(express.json())
 app.use(cors())
 app.use("/home", Auth, homeRouter)
 app.use("/user", userRouter)
+app.use("/main", mainRouter)
 
 const PORT = process.env.PORT 
-const ENVIRONMENT = process.env.ENVIRONMENT 
 
-app.listen(PORT, () => {
-    if( ENVIRONMENT === "Local"){
-        logger.info("running on port 5000")
-    } else if(ENVIRONMENT === "Database"){
-        dbConnect()
-    } else {
-        logger.warn("unknown environment")
-    }
-})
+
+app.listen(PORT, () => dbConnect())
